@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Practice {
 	
-	public static void start() {
+	public static void play() {
 		Scanner scanner = new Scanner(System.in);
 		String a, b;
 		System.out.println("가위바위보 게임입니다. 가위, 바위, 보 중에서 입력하세요");
@@ -39,6 +39,6 @@ public class Practice {
 	}
 
 	public static void main(String[] args) {
-		start();
+		play();
 	}
 }
