@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Practice {
+	public static void positional() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("2자리수 정수 입력(10~99)>>");
+		int number = scanner.nextInt();
+		
+		if((number)>=10 && (number)<=99) {
+			if(number/10 == number%10)
+				System.out.print("YES! 10의 자리와 1의 자리가 같습니다.");
+			else
+				System.out.print("NO! 10의 자리와 1의 자리가 다릅니다.");
+		}
+		else
+			System.out.print("범위 초과");
+	}
+	public static void main(String[] args) {
+		positional();
+	}
+}
