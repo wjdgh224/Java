@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class practice {
+	public static void calc() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("연산>>");
+		double x = scanner.nextDouble();
+		String op = scanner.next();//nextLine()은 enter가 입력되지 않으면 입력이 종료되지 않음. 
+		double y = scanner.nextDouble();
+		
+		switch(op) {
+			case "+":
+				System.out.print(x + op + y + "의 계산 결과는 " + (x+y));
+				break;
+			case "=":
+				System.out.print(x + op + y + "의 계산 결과는 ");
+				if(x==y)
+					System.out.print("같다");
+				else
+					System.out.print("다르다");
+				break;
+			case "*":
+				System.out.print(x + op + y + "의 계산 결과는 " + (x*y));
+				break;
+			case "/":
+				if(y == 0)
+					System.out.print("0으로 나루 수 없습니다.");
+				else
+					System.out.print(x + op + y + "의 계산 결과는 " + (x/y));
+				break;
+			default:
+				System.out.print("잘못입력");
+		}
+		
+		
+	}
+	public static void main(String[] args) {
+		calc();
+
+	}
+}
