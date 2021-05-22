@@ -8,10 +8,8 @@ public class practice {
 		String op = scanner.next();//nextLine()은 enter가 입력되지 않으면 입력이 종료되지 않음. 
 		double y = scanner.nextDouble();
 		
-		if(op.equals("+")) {
-			System.out.print(x + op + y + "의 계산 결과는 ");
-			System.out.print(x+y);
-		}
+		if(op.equals("+")) 
+			System.out.print(x + op + y + "의 계산 결과는 " + (x+y));
 		else if(op.equals("=")) {
 			System.out.print(x + op + y + "의 계산 결과는 ");
 			if(x==y)
@@ -19,10 +17,8 @@ public class practice {
 			else
 				System.out.print("다르다");
 		}
-		else if(op.equals("*")) {
-			System.out.print(x + op + y + "의 계산 결과는 ");
-			System.out.print(x*y);
-		}
+		else if(op.equals("*")) 
+			System.out.print(x + op + y + "의 계산 결과는 " + x*y);
 		else if(op.equals("/")) {
 			if(y==0)
 				System.out.print("0으로 나눌 수 없습니다.");
