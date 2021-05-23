@@ -1,0 +1,13 @@
+public class practice {
+	public static void DoWhileTest() {
+		int sum=0, i=0;
+		do {
+			sum = sum + i;
+			i+=2;
+		} while(i<100);
+		System.out.print(sum);
+	}
+	public static void main(String[] args) {
+		DoWhileTest();
+	}
+}
