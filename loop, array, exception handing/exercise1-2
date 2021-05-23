@@ -1,5 +1,5 @@
 public class practice {
-	public static void DoWhileTest() {
+	public static void doWhileTest() {
 		int sum=0, i=0;
 		do {
 			sum = sum + i;
@@ -8,6 +8,6 @@ public class practice {
 		System.out.print(sum);
 	}
 	public static void main(String[] args) {
-		DoWhileTest();
+		doWhileTest();
 	}
 }
