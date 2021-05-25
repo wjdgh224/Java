@@ -2,7 +2,7 @@ import java.math.*;
 
 public class practice {
 	
-	public static void array() {
+	public static void mean() {
 		System.out.print("랜덤한 정수들 : ");
 		int n [] = new int[10];
 		double sum=0, mean;
@@ -20,6 +20,6 @@ public class practice {
 	}
 
 	public static void main(String[] args) {
-		array();
+		mean();
 	}
 }
