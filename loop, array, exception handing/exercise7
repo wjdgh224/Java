@@ -1,0 +1,25 @@
+import java.math.*;
+
+public class practice {
+	
+	public static void array() {
+		System.out.print("랜덤한 정수들 : ");
+		int n [] = new int[10];
+		double sum=0, mean;
+		
+		for(int i=0; i<n.length; i++) {
+			n[i] = (int)(10*Math.random()+1);//0<=random()<1
+			System.out.print(n[i] + " ");
+		}
+		
+		for(int i=0; i<n.length; i++) {
+			sum += n[i];
+		}
+		
+		System.out.print("\n평균은 " + sum/n.length);
+	}
+
+	public static void main(String[] args) {
+		array();
+	}
+}
