@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class practice {
+	public static void RPS() {
+		Scanner scanner = new Scanner(System.in);
+		String str[] = {"가위", "바위", "보"};
+		System.out.println("컴퓨터와 가위 바위 보 게임을 합니다.");
+		
+		while(true) {
+			System.out.print("가위 바위 보!>>");
+			String a = scanner.next();
+			int n = (int)(3*Math.random());
+			if(a.equals(str[n])) {
+				System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 비겼습니다.");
+			}
+			else if(a.equals("가위")) {
+				if(str[n].equals("바위"))	 {
+					System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 컴퓨터가 이겼습니다.");
+				}
+				else {
+					System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 사용자가 이겼습니다.");
+				}
+			}
+			else if(a.equals("바위")) {
+				if(str[n].equals("가위"))	 {
+					System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 사용자가 이겼습니다.");
+				}
+				else {
+					System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 컴퓨터가 이겼습니다.");
+				}
+			}
+			else if(a.equals("보")) {
+				if(str[n].equals("가위"))	 {
+					System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 컴퓨터가 이겼습니다.");
+				}
+				else {
+					System.out.println("사용자 = " + a + ", 컴퓨터 = " + str[n] + ", 사용자가 이겼습니다.");
+				}
+			}
+			else if(a.equals("그만")) {
+				System.out.print("게임을 종료합니다.");
+				break;
+			}
+			else
+				System.out.println("잘못입력");
+		}
+	}
+	public static void main(String[] args) {
+		RPS();
+	}
+}
