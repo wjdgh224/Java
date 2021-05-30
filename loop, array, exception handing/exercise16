@@ -5,6 +5,9 @@ public class practice {
 		Scanner scanner = new Scanner(System.in);
 		String str[] = {"가위", "바위", "보"};
 		System.out.println("컴퓨터와 가위 바위 보 게임을 합니다.");
+		/*
+		종료, 오류, 이김, 짐, 비김 5가지로만 조건문 구성 가능.
+		*/
 		
 		while(true) {
 			System.out.print("가위 바위 보!>>");
