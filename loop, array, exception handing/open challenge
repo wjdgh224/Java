@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class practice {
+	public static void main (String[] args) {
+	   Scanner scanner = new Scanner(System.in);
+	   int count = 0;
+	   while(true) {
+	       System.out.println("수를 결정하였습니다. 맞추어 보세요\n0-99");
+	       int n = 1, low = 0, high = 99;
+	       while(true) {
+	           System.out.print(n + ">>");
+	           int number = scanner.nextInt();//입력수
+	           int key = (int)(100*Math.random());//정답
+	
+	           if(key == number) {
+	               System.out.print("맞았습니다.");
+	               break;
+	           }
+	           else if(key > number) {
+	               System.out.print("더 높게\n" + number + "-" + high);
+	               low = number;
+	           }
+	           else {
+	               System.out.print("더 낮게\n" + low + "-" + number);
+	               high = number;
+	           }
+	           
+	       }
+	       
+	       if(count == 1) {
+	           System.out.print("다시하시겠습니까(y/n)>>");
+	           String s = scanner.nextLine();
+	           if(s.equals("n")) {
+	               break;
+	           }
+	           else {
+	               count--;
+	           }
+	       }
+	       
+	   }
+	}
+}
