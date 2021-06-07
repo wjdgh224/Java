@@ -1,6 +1,6 @@
 class TV {
-	String name;
-	int a, b;
+	private String name;
+	private int a, b;
 	TV(String name, int a, int b) {
 		this.name = name;
 		this.a = a;
