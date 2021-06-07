@@ -1,0 +1,20 @@
+class TV {
+	String name;
+	int a, b;
+	TV(String name, int a, int b) {
+		this.name = name;
+		this.a = a;
+		this.b = b;
+	}
+	
+	public void show() {
+		System.out.print(name + "에서 만든 " + a + "년형 " + b + "인치 TV");
+	}
+}
+
+public class practice {
+	public static void main(String[] args) {
+		TV myTV = new TV("LG", 2017, 32);
+		myTV.show();
+	}
+}
