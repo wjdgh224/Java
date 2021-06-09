@@ -25,14 +25,14 @@ public class practice {
 				System.out.print("날짜(1~30)?");
 				int num = scanner.nextInt();
 				System.out.print("할일(빈칸없이입력)?");
-				day[num] = new Day();
-				day[num].set(scanner.next());
+				day[num-1] = new Day();
+				day[num-1].set(scanner.next());
 			}
 			else if(select == 2 ) {
 				System.out.print("날짜(1~30)?");
 				int num = scanner.nextInt();
 				System.out.print(num + "일의 할 일은 ");
-				day[num].show();
+				day[num-1].show();
 			}
 			else {
 				System.out.print("프로그램을 종료합니다.");
