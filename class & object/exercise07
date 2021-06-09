@@ -1,0 +1,44 @@
+import java.util.Scanner;//객체화를 조금 더 
+
+class Day {
+	private String work;
+	public void set(String work) { this.work = work; }
+	public String get() { return work; }
+	public void show() {
+		if(work == null) System.out.println("없습니다.");
+		else System.out.println(work + "입니다.");
+	}
+}
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Day day [] = new Day [30];//new Day()을 레퍼런스에 넣어줘야함.
+		
+		System.out.println("이번달 스케쥴 관리 프로그램.");
+		int count = 0;
+		while(true) {
+			System.out.print("할일(입력:1, 보기:2, 끝내기:3) >>");
+			int select = scanner.nextInt();
+			if(select == 1) {
+				count++;
+				System.out.print("날짜(1~30)?");
+				int num = scanner.nextInt();
+				System.out.print("할일(빈칸없이입력)?");
+				day[num] = new Day();
+				day[num].set(scanner.next());
+			}
+			else if(select == 2 ) {
+				System.out.print("날짜(1~30)?");
+				int num = scanner.nextInt();
+				System.out.print(num + "일의 할 일은 ");
+				day[num].show();
+			}
+			else {
+				System.out.print("프로그램을 종료합니다.");
+				break;
+			}
+			System.out.print("\n");
+		}
+	}
+}
