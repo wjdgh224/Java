@@ -1,0 +1,51 @@
+import java.util.Scanner;//캡슐화 조금 더 노력 
+
+class Phone {
+	String name;
+	String tel;
+	public void set(String name, String tel) { this.name = name; this.tel = tel;}
+	public void get() { System.out.print(this.name + "의 번호는 " + this.tel + "입니다."); }
+}
+
+public class practice {
+	 private static int num;
+	 private Phone phone [];
+	 private static Scanner scanner;
+	 
+	practice(int n) {
+		phone = new Phone[n];
+		for(int i=0; i<n; i++) {
+			phone[i] = new Phone();
+		}
+	}
+	void run() {
+		for(int i=0; i<num; i++) {
+			System.out.print("이름과 전화번호(이름과 번호는 빈 칸없이 입력)>>");
+			phone[i].set(scanner.next(), scanner.next());
+		}
+		System.out.println("저장되었습니다...");
+		while(true) {
+			int count = 0;
+			System.out.print("검색할 이름>>");
+			String name = scanner.next();
+			if(name.equals("그만"))
+				break;
+			for(int i=0; i<num; i++) {
+				if((phone[i].name).equals(name)) {
+					System.out.println( name + "의 번호는 " + phone[i].tel);
+					count++;
+				}
+			}
+			if(count == 0)
+				System.out.println( name + "이 없습니다." );
+		}
+	}
+	public static void main(String[] args) {
+		scanner = new Scanner(System.in);
+		System.out.print("인원수>>");
+		num = scanner.nextInt();
+		practice prac = new practice(num);
+		prac.run();
+		
+	}
+}
