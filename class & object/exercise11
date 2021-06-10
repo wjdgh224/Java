@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+class Add {
+	int a, b;
+	void setValue(int a, int b) { this.a = a; this.b = b; }
+	int calculate() { return a + b; }
+}
+
+class Sub {
+	int a, b;
+	void setValue(int a, int b) { this.a = a; this.b = b; }
+	int calculate() { return a - b; }
+}
+
+class Mul {
+	int a, b;
+	void setValue(int a, int b) { this.a = a; this.b = b; }
+	int calculate() { return a * b; }
+}
+
+class Div {
+	int a, b;
+	void setValue(int a, int b) { this.a = a; this.b = b; }
+	int calculate() { return a / b; }
+}
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Add add; Sub sub; Mul mul; Div div;
+		System.out.print("두 정수와 연산자를 입력하시오>>");
+		int x = scanner.nextInt();
+		int y = scanner.nextInt();
+		String z = scanner.next();
+		switch(z) {
+			case "+":
+				add = new Add();
+				add.setValue(x, y);
+				System.out.print(add.calculate());
+				break;
+			case "-": 
+				sub = new Sub();
+				sub.setValue(x, y);
+				System.out.print(sub.calculate());
+				break;
+			case "*": 
+				mul = new Mul();
+				mul.setValue(x, y);
+				System.out.print(mul.calculate());
+				break;
+			case "/": 
+				div = new Div();
+				div.setValue(x, y);
+				System.out.print(div.calculate());
+				break;
+			default:
+				System.out.print("오류");
+		}
+		scanner.close();
+	}
+}
