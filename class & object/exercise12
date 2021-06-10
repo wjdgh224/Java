@@ -1,0 +1,128 @@
+import java.util.Scanner;
+
+class Book {
+	Scanner scanner = new Scanner(System.in);
+	private static String [][] seat = { {"---", "---", "---", "---", "---", "---", "---", "---", "---", "---"},//S석
+										{"---", "---", "---", "---", "---", "---", "---", "---", "---", "---"},//A석
+										{"---", "---", "---", "---", "---", "---", "---", "---", "---", "---"}};//B석
+	void book() {
+		System.out.print("좌석구분 S(1), A(2), B(3)>>");
+		int num = scanner.nextInt();
+		switch(num) {
+			case 1:
+				System.out.print("S>> ");
+				for(int i=0; i<seat[0].length; i++)
+					System.out.print(seat[0][i] + " ");
+				System.out.println();
+				System.out.print("이름>>");
+				String name1 = scanner.next();
+				System.out.print("번호>>");
+				int seatNum1 = scanner.nextInt();
+				seat[0][seatNum1 - 1] = name1;	
+				break;
+			case 2:
+				System.out.print("A>> ");
+				for(int i=0; i<seat[1].length; i++)
+					System.out.print(seat[1][i] + " ");
+				System.out.println();
+				System.out.print("이름>>");
+				String name2 = scanner.next();
+				System.out.print("번호>>");
+				int seatNum2 = scanner.nextInt();
+				seat[1][seatNum2 - 1] = name2;
+				break;
+			case 3:
+				System.out.print("B>> ");
+				for(int i=0; i<seat[2].length; i++)
+					System.out.print(seat[2][i] + " ");
+				System.out.println();
+				System.out.print("이름>>");
+				String name3 = scanner.next();
+				System.out.print("번호>>");
+				int seatNum3 = scanner.nextInt();
+				seat[2][seatNum3 - 1] = name3;
+				break;
+		}
+	}
+	void search() {
+		for(int i=0; i<seat.length; i++) {
+			for(int j=0; j<seat[i].length; j++) {
+				System.out.print(seat[i][j] + " ");
+			}
+		System.out.println();
+		}
+		System.out.println("<<<조회를 완료하였습니다.>>>");
+	}
+	void cancle() {
+		System.out.print("좌석 S(1), A(2), B(3)>>");
+		int num = scanner.nextInt();
+		switch(num) {
+			case 1:
+				System.out.print("S>> ");
+				for(int i=0; i<seat[0].length; i++)
+					System.out.print(seat[0][i] + " ");
+				System.out.println();
+				System.out.print("이름>>");
+				String name1 = scanner.next();
+				for(int j=0; j<seat[0].length; j++) {
+					if(name1.equals(seat[0][j]))
+						seat[0][j] = "---";
+				}
+				break;
+				
+			case 2:
+				System.out.print("A>> ");
+				for(int i=0; i<seat[1].length; i++)
+					System.out.print(seat[1][i] + " ");
+				System.out.println();
+				System.out.print("이름>>");
+				String name2 = scanner.next();
+				for(int j=0; j<seat[0].length; j++) {
+					if(name2.equals(seat[1][j]))
+						seat[1][j] = "---";
+				}
+				break;
+			case 3:
+				System.out.print("B>> ");
+				for(int i=0; i<seat[2].length; i++)
+					System.out.print(seat[2][i] + " ");
+				System.out.println();
+				System.out.print("이름>>");
+				String name3 = scanner.next();
+				for(int j=0; j<seat[0].length; j++) {
+					if(name3.equals(seat[2][j]))
+						seat[2][j] = "---";
+				}
+				break;
+		}
+	}
+}
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Book book = new Book();
+		System.out.println("명품콘서트홀 예약 시스템입니다.");
+		while(true) {
+			int count = 0;
+			System.out.print("예약:1, 조회:2, 취소:3, 끝내기:4>>");
+			int num = sc.nextInt();
+			switch(num) {
+				case 1:
+					book.book();
+					break;
+				case 2:
+					book.search();
+					break;
+				case 3:
+					book.cancle();
+					break;
+				case 4:
+					count++;
+					break;
+			}
+			if(count == 1)
+				break;
+		}
+	}
+}
