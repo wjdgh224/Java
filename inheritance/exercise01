@@ -10,9 +10,8 @@ public class practice extends TV {
 		super(size);
 		this.colorSize = colorSize;
 	}
-	int getColor() { return colorSize; } 
 	void printProperty() {
-		System.out.print( getSize() +"인치 " + getColor() + "컬러");
+		System.out.print( getSize() +"인치 " + colorSize + "컬러");
 	}
 	public static void main(String[] args) {
 		practice myTV = new practice(32, 1024);
