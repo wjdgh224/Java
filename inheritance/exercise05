@@ -1,6 +1,7 @@
 class Point {
 	private int x;
 	private int y;
+	Point() { }
 	Point(int x , int y) { this.x = x; this.y = y; }
 	void setPoint(int x, int y) { this.x = x; this.y = y; }
 	int getX() { return x; }
@@ -9,6 +10,7 @@ class Point {
 
 class ColorPoint extends Point {
 	String color;
+	ColorPoint() { }
 	ColorPoint(int x, int y, String color) {
 		super(x,y);
 		this.color = color;
