@@ -1,0 +1,31 @@
+class Point {
+	private int x;
+	private int y;
+	Point(int x , int y) { this.x = x; this.y = y; }
+	void setPoint(int x, int y) { this.x = x; this.y = y; }
+	int getX() { return x; }
+	int getY() { return y; }
+}
+
+class ColorPoint extends Point {
+	String color;
+	ColorPoint(int x, int y, String color) {
+		super(x,y);
+		this.color = color;
+	}
+	void setXY(int x, int y) { setPoint(x, y); }
+	void setColor(String color) { this.color = color; }
+	public String toString() {
+		return color + "색의 (" + getX() + "," + getY() + ")의 점";
+	}
+}
+
+public class practice extends ColorPoint {
+	public static void main(String[] args) {
+		ColorPoint cp = new ColorPoint(5, 5, "YELLOW");
+		cp.setXY(10, 20);
+		cp.setColor("RED");
+		String str = cp.toString();
+		System.out.print(str + "입니다.");
+	}
+}
