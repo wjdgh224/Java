@@ -17,7 +17,7 @@ class ColorPoint extends Point {
 	}
 	void setXY(int x, int y) { setPoint(x, y); }
 	void setColor(String color) { this.color = color; }
-	public String toString() {
+	public String toString() {//Object객체의 toString() 오버라이딩. 원본의 메소드와 완전히 같아야 함.
 		return color + "색의 (" + getX() + "," + getY() + ")의 점";
 	}
 }
