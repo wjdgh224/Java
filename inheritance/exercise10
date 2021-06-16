@@ -10,35 +10,34 @@ abstract class PairMap {
 }
 
 class Dictionary extends PairMap {
-	String key[], value[];
 	int index = 0;
 	Dictionary(int x) {
-		key = new String[x]; value = new String[x];
+		keyArray = new String[x]; valueArray = new String[x];
 	}
 	String get(String key) {
 		for(int i=0; i<index; i++) {
-			if(key.equals(this.key[i]))
-				return value[i];
+			if(key.equals(this.keyArray[i]))
+				return valueArray[i];
 		}
 		return "null";
 	}
 	void put(String key, String value) {
-		this.key[index] = key; this.value[index] = value; index++;
+		this.keyArray[index] = key; this.valueArray[index] = value; index++;
 	}
 	String delete(String key) {//중간이 삭제되면 당겨야됨.
 		int temp = -1;
 		for(int i=0; i<index; i++) {
-			if(key.equals(this.key[i])) {
+			if(key.equals(this.keyArray[i])) {
 				temp = i;
 				break;
 			}
 		}
 		if(temp>=0) {
 			for(int i=temp; i<index; i++) {
-				this.key[i] = this.key[i+1]; this.value[i] = this.value[i+1];
+				this.keyArray[i] = this.keyArray[i+1]; this.valueArray[i] = this.valueArray[i+1];
 			}
 			index--;
-			return this.value[temp];
+			return this.valueArray[temp];
 		}
 		else return "null";
 	}
