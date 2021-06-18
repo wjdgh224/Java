@@ -29,7 +29,7 @@ class Circle extends Shape {
 public class practice {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Shape start = null, last = null, obj;
+		Shape start = null, last = null, obj, temp1, temp2=null;//1은 현재, 2는 이전
 		int count = 0;
 		System.out.println("그래픽 에디터 beauty을 실행합니다.");
 		while(true) {
@@ -83,6 +83,20 @@ public class practice {
 						System.out.println("오류");
 					break;
 				case 2:
+					System.out.print("삭제할 도형의 위치>>");
+					int p = scanner.nextInt();
+					temp1=start;
+					for(int i=1; i<p; i++) {
+						temp2 = temp1;
+						temp1 = temp1.getNext();
+					}
+					if(temp2.getNext() == null) {
+						System.out.println("삭제할 수 없습니다.");
+						break;
+					}
+					else {
+						temp2.setNext(temp1.getNext());
+					}
 					
 				case 3:
 					while(start != last) {
@@ -100,5 +114,6 @@ public class practice {
 			if(n==4)
 				break;
 		}
+		scanner.close();
 	}
 }
