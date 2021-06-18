@@ -88,7 +88,11 @@ public class practice {
 					temp1=start;
 					for(int i=1; i<p; i++) {
 						temp2 = temp1;
+						System.out.print("temp2=");
+						temp2.draw();
 						temp1 = temp1.getNext();
+						System.out.print("temp1=");
+						temp1.draw();
 					}
 					if(temp2.getNext() == null) {
 						System.out.println("삭제할 수 없습니다.");
@@ -96,8 +100,8 @@ public class practice {
 					}
 					else {
 						temp2.setNext(temp1.getNext());
-					}
-					
+						break;
+					}				
 				case 3:
 					while(start != last) {
 						start.draw();
