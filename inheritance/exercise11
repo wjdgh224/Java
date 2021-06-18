@@ -62,5 +62,6 @@ public class practice {
 			default:
 				System.out.print("오류");
 		}
+		scanner.close();
 	}
 }
