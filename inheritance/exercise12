@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+abstract class Shape {
+	private Shape next;
+	public Shape() { next = null; }
+	public void setNext(Shape obj) { next = obj; }
+	public Shape getNext() { return next; }
+	public abstract void draw();
+}
+
+class Line extends Shape {
+	public void draw() { 
+		System.out.println("Line");
+	}
+}
+
+class Rect extends Shape {
+	public void draw() { 
+		System.out.println("Rect");
+	}
+}
+
+class Circle extends Shape {
+	public void draw() { 
+		System.out.println("Circle");
+	}
+}
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Shape start = null, last = null, obj;
+		int count = 0;
+		System.out.println("그래픽 에디터 beauty을 실행합니다.");
+		while(true) {
+			System.out.print("삽입(1), 삭제(2), 모두 보기(3), 종료(4)>>");
+			int n = scanner.nextInt();
+			if(n == 1 && count ==0) {//첫 객체 생성.
+				System.out.print("Line(1), Rect(2), Circle(3)>>");
+				int m = scanner.nextInt();
+				if(m==1) {
+					obj = new Line();
+					start = obj;
+					last = obj;
+			
+				}
+				else if (m==2) {
+					obj = new Rect();
+					start = obj;
+					last = obj;
+				}
+				else if (m==3) {
+					obj = new Circle();
+					start = obj;
+					last = obj;
+				}
+				else
+					System.out.println("오류");
+				count++;
+				continue;
+			}
+			switch(n) {
+				case 1:
+					System.out.print("Line(1), Rect(2), Circle(3)>>");
+					int m = scanner.nextInt();
+					if(m==1) {
+						obj = new Line();
+						last.setNext(obj);
+						last = obj;
+				
+					}
+					else if (m==2) {
+						obj = new Rect();
+						last.setNext(obj);
+						last = obj;
+					}
+					else if (m==3) {
+						obj = new Circle();
+						last.setNext(obj);
+						last = obj;
+					}
+					else
+						System.out.println("오류");
+					break;
+				case 2:
+					
+				case 3:
+					while(start != last) {
+						start.draw();
+						start = start.getNext();
+					}
+					start.draw();
+					break;
+				case 4:
+					System.out.println("beauty을 종료합니다.");
+					break;
+				default:
+					
+			}
+			if(n==4)
+				break;
+		}
+	}
+}
