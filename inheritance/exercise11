@@ -1,1 +1,66 @@
+import java.util.Scanner;
 
+abstract class Calc {
+	int a;
+	int b;
+	void setValue(int a, int b) { this.a = a; this.b = b; };
+	abstract int calculate();
+}
+
+class Add extends Calc {
+	int calculate() {
+		return super.a + super.b;
+	}
+}
+
+class Sub extends Calc {
+	int calculate() {
+		return super.a - super.b;
+	}
+}
+
+class Mul extends Calc {
+	int calculate() {
+		return super.a * super.b;
+	}
+}
+
+class Div extends Calc {
+	int calculate() {
+		return super.a / super.b;
+	}
+}
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Add add; Sub sub; Mul mul; Div div;
+		System.out.print("두 정수와 연산자를 입력하시오>>");
+		int a = scanner.nextInt();
+		int b = scanner.nextInt();
+		char c = (scanner.next()).charAt(0);
+		switch(c) {
+			case '+':
+				add = new Add();
+				add.setValue(a, b);
+				System.out.print(add.calculate());
+				break;
+			case '-':
+				sub = new Sub();
+				sub.setValue(a, b);
+				System.out.print(sub.calculate());
+				break;
+			case '*':
+				mul = new Mul();
+				mul.setValue(a, b);
+				System.out.print(mul.calculate());
+				break;
+			case '/':
+				div = new Div();
+				div.setValue(a, b);
+				System.out.print(div.calculate());
+				break;
+			default:
+				System.out.print("오류");
+		}
+	}
+}
