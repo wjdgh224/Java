@@ -30,28 +30,31 @@ public class practice {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Shape start = null, last = null, obj, temp1=null, temp2=null, temp3=null, temp4 =null;//1은 현재, 2는 이전
+		int count = 0;
 		System.out.println("그래픽 에디터 beauty을 실행합니다.");
 		while(true) {
 			System.out.print("삽입(1), 삭제(2), 모두 보기(3), 종료(4)>>");
 			int n = scanner.nextInt();
 			if(start == null && last == null && n==1) {//첫 객체 생성.
-				System.out.print("첫Line(1), Rect(2), Circle(3)>>");
+				System.out.print("Line(1), Rect(2), Circle(3)>>");
 				int m = scanner.nextInt();
 				if(m==1) {
 					obj = new Line();
 					start = obj;
 					last = obj;
-			
+					count++;
 				}
 				else if (m==2) {
 					obj = new Rect();
 					start = obj;
 					last = obj;
+					count++;
 				}
 				else if (m==3) {
 					obj = new Circle();
 					start = obj;
 					last = obj;
+					count++;
 				}
 				else
 					System.out.println("오류");
@@ -66,17 +69,19 @@ public class practice {
 						obj = new Line();
 						last.setNext(obj);
 						last = obj;
-				
+						count++;
 					}
 					else if (m==2) {
 						obj = new Rect();
 						last.setNext(obj);
 						last = obj;
+						count++;
 					}
 					else if (m==3) {
 						obj = new Circle();
 						last.setNext(obj);
 						last = obj;
+						count++;
 					}
 					else
 						System.out.println("오류");
@@ -84,6 +89,10 @@ public class practice {
 				case 2:
 					System.out.print("삭제할 도형의 위치>>");
 					int p = scanner.nextInt();
+					if(p>count) {
+						System.out.println("삭제할 수 없습니다.");
+						break;
+					}
 					temp1 = start; temp2 = temp1;
 					for(int i=1; i<p; i++) {
 						temp2 = temp1;
@@ -91,16 +100,20 @@ public class practice {
 					}
 					if(start==last) {//객체 1개
 						start = null; last = null;
+						count--;
 					}
 					else if(p==1) {//객체 1개가 아니며 첫번째
 						start = start.getNext();
+						count--;
 					}
 					else if(temp1.getNext() == null) {//마지막 객체
 						last = temp2;
 						temp2.setNext(null);
+						count--;
 					}
-					else {//중간 객체
+					else if(temp1.getNext() != null) {//중간 객체
 						temp2.setNext(temp1.getNext());
+						count--;
 					}
 					break;
 				case 3:
