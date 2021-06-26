@@ -1,5 +1,6 @@
 public class MathEx {
   public static void main(String[] args) {
+    double a = Math.PI;
     System.out.println(Math.PI);
     System.out.println(Math.ceil(a));
     System.out.println(Math.floor(a));
