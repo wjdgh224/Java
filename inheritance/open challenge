@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class  GameObject {
+abstract class  GameObject {
 	protected int distance;
 	protected int x, y;
 	public GameObject(int startX, int startY, int distance) {
@@ -20,8 +20,183 @@ public abstract class  GameObject {
 	protected abstract char getShape();
 }
 
+class Bear extends GameObject {
+	Scanner scanner = new Scanner(System.in);
+	Bear(int startX, int startY, int distance) {
+		super(startX, startY, distance);
+	}
+	protected void move() {
+		System.out.print("왼쪽(a), 아래(s), 위(d), 오른쪽(f) >> ");
+		char key = (scanner.next()).charAt(0);
+		switch(key) {
+		case 'a':
+			this.x -= this.distance;
+			break;
+		case 's':
+			this.y += this.distance;
+			break;
+		case 'd':
+			this.y -= this.distance;
+			break;
+		case 'f':
+			this.x += this.distance;
+			break;
+		default:
+			break;
+		}
+	}
+	protected char getShape() {
+		return 'B';
+	}
+	
+}
+
+class Fish extends GameObject {//5번중 2번만 이동
+	int count5 = 0; boolean [] array = {false, false, false, false, false};//5번
+	Fish(int startX, int startY, int distance) {
+		super(startX, startY, distance);
+	}
+	protected void move() {
+		if(count5 == 0) {
+			int random = (int)(Math.random()*5);//5번중 2번 랜덤
+			array[random] = true;
+			if(array[0] == true) {
+				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
+				if( LR == 0 && UD == 0) {
+					this.x -= this.distance;
+				}
+				else if( LR == 0 && UD == 1) {
+					this.y += this.distance;
+				}
+				else if( LR == 1 && UD == 0) {
+					this.y -= this.distance;
+				}
+				else {
+					this.x += this.distance;
+				}
+				count5++;
+			}
+	
+		}
+		else if(count5 == 1) {
+			if(array[1] == true) {
+				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
+				if( LR == 0 && UD == 0) {
+					this.x -= this.distance;
+				}
+				else if( LR == 0 && UD == 1) {
+					this.y += this.distance;
+				}
+				else if( LR == 1 && UD == 0) {
+					this.y -= this.distance;
+				}
+				else {
+					this.x += this.distance;
+				}
+				count5++;
+			}
+		}
+		else if(count5 == 2) {
+			if(array[2] == true) {
+				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
+				if( LR == 0 && UD == 0) {
+					this.x -= this.distance;
+				}
+				else if( LR == 0 && UD == 1) {
+					this.y += this.distance;
+				}
+				else if( LR == 1 && UD == 0) {
+					this.y -= this.distance;
+				}
+				else {
+					this.x += this.distance;
+				}
+				count5++;
+			}
+		}
+		else if(count5 == 3) {
+			if(array[3] == true) {
+				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
+				if( LR == 0 && UD == 0) {
+					this.x -= this.distance;
+				}
+				else if( LR == 0 && UD == 1) {
+					this.y += this.distance;
+				}
+				else if( LR == 1 && UD == 0) {
+					this.y -= this.distance;
+				}
+				else {
+					this.x += this.distance;
+				}
+				count5++;
+			}
+		}
+		else if(count5 == 4) {
+			if(array[4] == true) {
+				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
+				if( LR == 0 && UD == 0) {
+					this.x -= this.distance;
+				}
+				else if( LR == 0 && UD == 1) {
+					this.y += this.distance;
+				}
+				else if( LR == 1 && UD == 0) {
+					this.y -= this.distance;
+				}
+				else {
+					this.x += this.distance;
+				}
+				count5++;
+			}
+			count5 = 0;
+			for(int i=0; i<5; i++)
+				array[i] = false;
+		}
+
+		
+	}
+	protected char getShape() {
+		return '@';
+	}
+}
+
 public class practice {
 	public static void main(String[] args) {
+		Bear bear = new Bear(0, 0, 1); Fish fish = new Fish(5, 5, 1);
+		char[][] array = {{'B', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '@', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'}
+						 };
+		System.out.println("** Bear의 Fish 먹기 게임을 시작합니다.**");
+		for(int i=0; i<array.length; i++) {
+			for(int j=0; j<array[i].length; j++) {
+				System.out.print(array[i][j]);
+			}
+			System.out.println();
+		}
+		while(true) {
+			bear.move(); fish.move();
+			array[fish.x][fish.y] = '@'; array[bear.x][bear.y] = 'B';
+			for(int i=0; i<array.length; i++) {
+				for(int j=0; j<array[i].length; j++) {
+					System.out.print(array[i][j]);
+				}
+				System.out.println();
+			}
+			if(bear.collide(fish)) {
+				System.out.println("Bear Wins!!");
+				break;
+			}
+		
+		}
 		
 	}
 }
