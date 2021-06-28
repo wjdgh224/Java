@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.Calendar;
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Calendar cal1, cal2, cal3, cal4; int a=0, b=0, c=0, d=0;
+		System.out.println("10초에 가까운 사람이 이기는 게임입니다.");
+		System.out.print("황기태 시작 <Enter>키>>");
+		if(scanner.nextLine() == "") {
+			cal1 = Calendar.getInstance();
+			a = cal1.get(Calendar.SECOND);
+			System.out.println("\t현재 초 시간 = " + a);
+		}
+		System.out.print("10초 예상 후 <Enter>키>>");
+		if(scanner.nextLine() == "") {
+			cal2 = Calendar.getInstance();
+			b = cal2.get(Calendar.SECOND);
+			System.out.println("\t현재 초 시간 = " + b);
+		}
+		System.out.print("이재문 시작 <Enter>키>>");
+		if(scanner.nextLine() == "") {
+			cal3 = Calendar.getInstance();
+			c = cal3.get(Calendar.SECOND);
+			System.out.println("\t현재 초 시간 = " + c);
+		}
+		System.out.print("10초 예상 후 <Enter>키>>");
+		if(scanner.nextLine() == "") {
+			cal4 = Calendar.getInstance();
+			d = cal4.get(Calendar.SECOND);
+			System.out.println("\t현재 초 시간 = " + d);
+		}
+		int result1, result2; String result3;
+		if(b<a)
+			result1 = 60 + b - a;
+		else
+			result1 = Math.abs(a - b);
+		if(d<c)
+			result2 = 60 + d - c;
+		else
+			result2 = Math.abs(c - d);
+		if(10-result1 < 10-result2)
+			result3 = "황기태";
+		else
+			result3 = "이재문";
+		System.out.print("황기태의 결과 " + result1 + " 이재문의 결과 " + result2 + " 승자는 " + result3 );
+	}
+}
