@@ -29,20 +29,32 @@ class Bear extends GameObject {
 		System.out.print("왼쪽(a), 아래(s), 위(d), 오른쪽(f) >> ");
 		char key = (scanner.next()).charAt(0);
 		switch(key) {
-		case 'a':
-			this.x -= this.distance;
-			break;
-		case 's':
-			this.y += this.distance;
-			break;
-		case 'd':
-			this.y -= this.distance;
-			break;
-		case 'f':
-			this.x += this.distance;
-			break;
-		default:
-			break;
+			case 'a':
+				if(x>0)
+					this.y -= this.distance;
+				else
+					this.y = 0;
+				break;
+			case 's'://9,10
+				if(y<9)
+					this.x += this.distance;
+				else
+					this.x = 9;
+				break;
+			case 'd':
+				if(y>0)
+					this.x -= this.distance;
+				else
+					this.x = 0;
+				break;
+			case 'f':
+				if(x<19)
+					this.y += this.distance;
+				else
+					this.y = 19;
+				break;
+			default:
+				System.out.println("error");				
 		}
 	}
 	protected char getShape() {
@@ -52,109 +64,37 @@ class Bear extends GameObject {
 }
 
 class Fish extends GameObject {//5번중 2번만 이동
-	int count5 = 0; boolean [] array = {false, false, false, false, false};//5번
 	Fish(int startX, int startY, int distance) {
 		super(startX, startY, distance);
 	}
 	protected void move() {
-		if(count5 == 0) {
-			int random = (int)(Math.random()*5);//5번중 2번 랜덤
-			array[random] = true;
-			if(array[0] == true) {
-				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
-				if( LR == 0 && UD == 0) {
-					this.x -= this.distance;
-				}
-				else if( LR == 0 && UD == 1) {
-					this.y += this.distance;
-				}
-				else if( LR == 1 && UD == 0) {
-					this.y -= this.distance;
-				}
-				else {
-					this.x += this.distance;
-				}
-				count5++;
-			}
-	
+		int random = (int)(Math.random()*4);
+		switch(random) {
+		case 0:
+			if(x>0)
+				this.x -= this.distance;
+			else
+				this.x = 0;
+			break;
+		case 1:
+			if(y<9)
+				this.y += this.distance;
+			else
+				this.y = 9;
+			break;
+		case 2:
+			if(y>0)
+				this.y -= this.distance;
+			else
+				this.y = 0;
+			break;
+		default:
+			if(x<19)
+				this.y += this.distance;
+			else
+				this.y = 19;
+			break;			
 		}
-		else if(count5 == 1) {
-			if(array[1] == true) {
-				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
-				if( LR == 0 && UD == 0) {
-					this.x -= this.distance;
-				}
-				else if( LR == 0 && UD == 1) {
-					this.y += this.distance;
-				}
-				else if( LR == 1 && UD == 0) {
-					this.y -= this.distance;
-				}
-				else {
-					this.x += this.distance;
-				}
-				count5++;
-			}
-		}
-		else if(count5 == 2) {
-			if(array[2] == true) {
-				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
-				if( LR == 0 && UD == 0) {
-					this.x -= this.distance;
-				}
-				else if( LR == 0 && UD == 1) {
-					this.y += this.distance;
-				}
-				else if( LR == 1 && UD == 0) {
-					this.y -= this.distance;
-				}
-				else {
-					this.x += this.distance;
-				}
-				count5++;
-			}
-		}
-		else if(count5 == 3) {
-			if(array[3] == true) {
-				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
-				if( LR == 0 && UD == 0) {
-					this.x -= this.distance;
-				}
-				else if( LR == 0 && UD == 1) {
-					this.y += this.distance;
-				}
-				else if( LR == 1 && UD == 0) {
-					this.y -= this.distance;
-				}
-				else {
-					this.x += this.distance;
-				}
-				count5++;
-			}
-		}
-		else if(count5 == 4) {
-			if(array[4] == true) {
-				int LR = (int)(Math.random()*2); int UD = (int)(Math.random()*2);//00 01 10 11
-				if( LR == 0 && UD == 0) {
-					this.x -= this.distance;
-				}
-				else if( LR == 0 && UD == 1) {
-					this.y += this.distance;
-				}
-				else if( LR == 1 && UD == 0) {
-					this.y -= this.distance;
-				}
-				else {
-					this.x += this.distance;
-				}
-				count5++;
-			}
-			count5 = 0;
-			for(int i=0; i<5; i++)
-				array[i] = false;
-		}
-
-		
 	}
 	protected char getShape() {
 		return '@';
@@ -163,7 +103,7 @@ class Fish extends GameObject {//5번중 2번만 이동
 
 public class practice {
 	public static void main(String[] args) {
-		Bear bear = new Bear(0, 0, 1); Fish fish = new Fish(5, 5, 1);
+		Bear bear = new Bear(0, 0, 1); Fish fish = new Fish(5, 5, 1); int count5 = 0, count2 = 0;
 		char[][] array = {{'B', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
 						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
 						  {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
@@ -183,19 +123,36 @@ public class practice {
 			System.out.println();
 		}
 		while(true) {
-			bear.move(); fish.move();
-			array[fish.x][fish.y] = '@'; array[bear.x][bear.y] = 'B';
+			array[bear.x][bear.y] = '-'; array[fish.x][fish.y] = '-';
+			bear.move();
+			int key = (int)(Math.random()*2);
+			if(key == 1 && count2 < 2 ) {//1이 나오고 2번 이동 하지 않았으면
+				fish.move(); count2++;
+			}
+			if(count5 == 3 && count2 == 0) {
+				fish.move(); count2++;
+			}
+			if(count5 == 4 && count2 == 1) {
+				fish.move(); count2++;
+			}
+			count5++;
+			if(count5 == 5 && count2 == 2) {
+				count2 = 0; count5 = 0;
+			}
+
+			array[fish.x][fish.y] = fish.getShape(); array[bear.x][bear.y] = bear.getShape();  
 			for(int i=0; i<array.length; i++) {
 				for(int j=0; j<array[i].length; j++) {
 					System.out.print(array[i][j]);
 				}
 				System.out.println();
 			}
+
 			if(bear.collide(fish)) {
 				System.out.println("Bear Wins!!");
 				break;
 			}
-		
+			
 		}
 		
 	}
