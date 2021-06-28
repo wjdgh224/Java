@@ -6,6 +6,13 @@ class MyPoint {
 	public String toString() {
 		return "Point(" + this.x + "," + this.y + ")";
 	}
+	public boolean equals(Object obj) {
+		MyPoint p = (MyPoint)obj;
+		if(this.x == p.x && this.y == p.y)
+			return true;
+		else
+			return false;
+	}
 }
 
 public class practice {
