@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String word;
+		while(true) {
+			System.out.print(">>"); int count = 0;
+			word = scanner.nextLine();
+			for(int i=0; i<word.length(); i++) {
+				if(word.charAt(i) == ' ')
+					count++;
+			}
+			count++;
+			if(word.equals("그만")) {
+				System.out.println("종료합니다...");
+				break;
+			}
+			System.out.println("어절 개수는 " + count);			
+		}
+	}
+}
