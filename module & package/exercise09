@@ -4,7 +4,7 @@ public class practice {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		while(true) {
-			System.out.print("철수[가위(1), 바위(2), 보(3), 끝내기(4)]>>");
+			System.out.print("철수[가위(1), 바위(2), 보(3), 끝내기(4)]>>");//숫자를 할당 했기에 숫자간의 규칙을 찾으면 더 간결해짐.
 			int person = scanner.nextInt();
 			int com = (int)(Math.random()*3+1);
 			int count = 0;
