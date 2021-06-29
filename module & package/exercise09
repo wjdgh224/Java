@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		while(true) {
+			System.out.print("철수[가위(1), 바위(2), 보(3), 끝내기(4)]>>");
+			int person = scanner.nextInt();
+			int com = (int)(Math.random()*3+1);
+			int count = 0;
+			if(person == 4 ) break;
+			if(person == com) {
+				count--;
+				if(person == 1) 
+					System.out.println("철수(가위) : 컴퓨터(가위)");
+				else if(person == 2) 
+					System.out.println("철수(바위) : 컴퓨터(바위)");
+				else
+					System.out.println("철수(보) : 컴퓨터(보)");
+			}
+			else if(person == 1) {
+				if(com == 2)
+					System.out.println("철수(가위) : 컴퓨터(바위)");
+				else {
+					System.out.println("철수(가위) : 컴퓨터(보)");//승 
+					count++;
+				}
+			}
+			else if(person == 2) {
+				if(com == 1) {
+					System.out.println("철수(바위) : 컴퓨터(가위)");//승 
+					count++;
+				}
+				else
+					System.out.println("철수(바위) : 컴퓨터(보)");
+			}
+			else {
+				if(com == 1)
+					System.out.println("철수(보) : 컴퓨터(가위)");
+				else {
+					System.out.println("철수(보) : 컴퓨터(바위)");//승
+					count++;
+				}
+			}
+			if(count == 1) System.out.println("철수가 이겼습니다.");
+			else if(count == -1) System.out.println("비겼습니다.");
+			else System.out.println("컴퓨터가 이겼습니다.");
+			
+		}
+	}
+}
