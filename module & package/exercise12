@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class practice {
+	static Scanner scanner = new Scanner(System.in);
+	static void play() {
+		System.out.print("겜블링 게임에 참여할 선수 숫자>>"); int n = scanner.nextInt(); scanner.nextLine();
+		String name[] = new String[n];
+		for(int i=0; i<n; i++) {
+			System.out.print((i+1) + "번째 선수 이름>>");
+			name[i] = scanner.nextLine();
+		}
+		int count = 0;
+		while(true) {
+			System.out.print("[" + name[count] + "]:<Enter>");
+			if(scanner.nextLine() == "") {
+				int x, y, z;
+				x = (int)(Math.random()*3 + 1);
+				y = (int)(Math.random()*3 + 1);
+				z = (int)(Math.random()*3 + 1);
+				System.out.print("  " + x + " " + y + " " + z);
+				if(x==y && y==z) {
+					System.out.print(name[count] + "님이 이겼습니다.");
+					break;
+				}
+				else {
+					System.out.println("아쉽군요!");
+					count++;
+				}
+				if(count==3)
+					count=0;
+				
+			}
+		}
+		
+	}
+	public static void main(String[] args) {
+		play();
+	}
+}
