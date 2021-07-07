@@ -1,0 +1,47 @@
+import java.util.*;
+
+class Location {
+	String country;
+	int longitude, latitude;
+	Location(String country, int longitude, int latitude) {
+		this.country = country; this.longitude = longitude; this.latitude = latitude;
+	}
+}
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in); String input, array[]; Location location[] = new Location[4];
+		System.out.println("도시,경도,위도를 입력하세요.");
+		for(int i=0; i<4; i++) {
+			System.out.print(">> ");
+			input = scanner.nextLine();
+			array = input.split(",");
+			location[i] = new Location(array[0], Integer.parseInt(array[1].trim()), Integer.parseInt(array[2].trim()));
+		}
+		System.out.println("---------------------------------------");
+		for(int i=0; i<4; i++) {
+			System.out.println(location[i].country + "  " + location[i].longitude + "  " + location[i].latitude);
+		}
+		System.out.println("---------------------------------------");
+		String name; int index;
+		while(true) {
+			System.out.print("도시 이름 >> ");
+			name = scanner.next();
+			if(name.equals("그만"))
+				break;
+			else if(name.equals(location[0].country))
+				index = 0;
+			else if(name.equals(location[1].country))
+				index = 1;
+			else if(name.equals(location[2].country))
+				index = 2;
+			else if(name.equals(location[3].country))
+				index = 4;
+			else {
+				System.out.println(name + "은/는 없습니다.");
+				continue;
+			}
+			System.out.println(location[index].country + "  " + location[index].longitude + "  " + location[index].latitude);	
+		}
+	}
+}
