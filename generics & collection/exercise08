@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class practice {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		Set<String> keys;
+		Iterator<String> it;
+		String name; int point, tmp=0;
+		System.out.println("** 포인트 관리 프로그램입니다 **");
+		while(true) {
+			System.out.print("이름과 포인트 입력>> ");
+			name = scanner.next();
+			if(name.equals("그만"))
+				break;
+			point = scanner.nextInt();
+			tmp = 0;
+			if(hm.get(name)!= null) {//새로운 이름이 들어오면 영향을 줌.
+				tmp = hm.get(name);
+			}
+			hm.put(name, tmp + point);
+			keys = hm.keySet();
+			it = keys.iterator();
+			while(it.hasNext()) {
+				String s = it.next();
+				System.out.print("(" + s + "," + hm.get(s) + ")");
+			}
+			System.out.println();
+		}
+	}
+}
