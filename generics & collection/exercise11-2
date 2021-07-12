@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class practice {
+	static void play() {
+		System.out.println("**** 수도 맞추기 게임을 시작합니다. ****");
+		HashMap<String, String> hm = new HashMap<String, String>();
+		Set<String> keys; Iterator<String> it;
+		Scanner scanner = new Scanner(System.in);
+		String country, capital, tmp, answer; int num, start = 0;
+		while(true ) {
+			System.out.print("입력:1, 퀴즈:2, 종료:3>> ");
+			num = scanner.nextInt();
+			if(num == 1) {
+				System.out.println("현재 " + hm.size() + "개 나라와 수도가 입력되어 있습니다.");
+				while(true) {
+					System.out.print("나라와 수도 입력" + (hm.size()+1) + ">>");
+					country = scanner.next();
+					if(country.equals("그만"))
+						break;
+					capital = scanner.next();
+					if(start == 0) {
+						hm.put(country, capital);
+						start++;
+						continue;
+					}
+					keys = hm.keySet(); it = keys.iterator();
+					while(it.hasNext()) {
+						tmp = it.next();
+						if(tmp.equals(country)) {
+							System.out.println(country + "이미 있습니다!");
+							break;
+						}
+						hm.put(country, capital);
+						break;
+					}
+				}
+			}
+			else if(num == 2) {
+				keys = hm.keySet(); it = keys.iterator();
+				while(it.hasNext()) {
+					tmp = it.next();
+					System.out.print(tmp + "의 수도는?");
+					answer = scanner.next();
+					if(answer.equals(hm.get(tmp)))
+						System.out.println("정답!!");
+					else
+						System.out.println("아닙니다!!");
+				}
+			}
+			else {
+				System.out.print("게임을 종료합니다.");
+				break;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		play();
+	}
+}
