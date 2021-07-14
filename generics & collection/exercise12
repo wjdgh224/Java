@@ -90,6 +90,6 @@ public class practice {
 		
 	}
 	public static void main(String[] args) {
-		play();
+		play();//클래스를 만들어서 함수를 사용하면 static일 필요가 없음.
 	}
 }
