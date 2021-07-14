@@ -1,0 +1,66 @@
+import java.util.*;
+
+class Word {
+	String kor, eng;
+	Word(String kor, String eng) {
+		this.kor = kor; this.eng = eng;
+	}
+	String getKor() {
+		return this.kor;
+	}
+	String getEng() {
+		return this.eng;
+	}
+}
+public class practice {
+	static void play() {
+		Scanner scanner = new Scanner(System.in);
+		Vector<Word> v = new Vector<Word>(); String [] array = {"", "", "", ""};
+		v.add(new Word("한국", "korea")); v.add(new Word("그림", "picture")); v.add(new Word("아기", "baby")); 
+		v.add(new Word("인형", "doll")); v.add(new Word("감정", "emotion")); v.add(new Word("오류", "error")); 
+		v.add(new Word("곰", "bear")); v.add(new Word("사회", "society")); v.add(new Word("눈", "eye")); 
+		v.add(new Word("사랑", "love")); v.add(new Word("동물", "animal")); v.add(new Word("인간", "human")); 
+		System.out.println("\"명품영어\"의 단어 테스트를 시작합니다. -1을 입력하면 종료합니다.");
+		System.out.println("현재 " + v.size() + "개의 단어가 들어 있습니다.");//12개의 단어
+		while(true) {
+			int random1 = (int)(Math.random()*12);//정답
+			System.out.println((v.get(random1)).getEng() + "?");
+			int random2 = (int)(Math.random()*4);//정답 번호 생성
+			array[random2] = (v.get(random1)).kor;//삽입
+			for(int i=0; i<4; i++) {//오답 삽입
+				if(i == random2)//정답과 같은 위치라면 생략
+					continue;
+				int random3 = (int)(Math.random()*12);//오답
+				if(random3 == random2) {//오답과 정답이 같다면 다시 시작
+					i--;
+					continue;
+				}
+				int count = 0;//중복 판별
+				//오답 중복 방지
+				for(int j=0; j<i; j++) {//입력 이전의 값들
+					if(array[j] == (v.get(random3)).getKor()) {
+						i--;
+						count++;
+						break;
+					}
+				}
+				if(count == 0)
+					array[i] = (v.get(random3)).getKor();
+			}
+			System.out.print("(1)" + array[0] + " (2)" + array[1] + " (3)" + array[2] + " (4)" + array[3] + ":>");
+			int num = scanner.nextInt();
+			if(num == -1) {
+				System.out.println("\"명품영어\"를 종료합니다...");
+				break;
+			}
+			if(array[num - 1] == array[random2])
+				System.out.println("Excellent !!");
+			else
+				System.out.println("No. !!");
+			
+		}
+	}
+	public static void main(String[] args) {
+		play();
+	}
+}
