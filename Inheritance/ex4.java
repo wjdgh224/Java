@@ -2,7 +2,7 @@ package practice5;
 
 import java.util.Scanner;
 
-/*abstract class Converter {
+abstract class Converter {
 	abstract protected double convert(double src);
 	abstract protected String getSrcString();
 	abstract protected String getDestString();
@@ -10,14 +10,14 @@ import java.util.Scanner;
 	
 	public void run() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println(getSrcString() + "À» " + getDestString() + "·Î ¹Ù²ß´Ï´Ù.");
-		System.out.print(getSrcString() + "À» ÀÔ·ÂÇÏ¼¼¿ä>> ");
+		System.out.println(getSrcString() + "ì„ " + getDestString() + "ë¡œ ë°”ê¿‰ë‹ˆë‹¤.");
+		System.out.print(getSrcString() + "ì„ ìž…ë ¥í•˜ì„¸ìš”>> ");
 		double val = scanner.nextDouble();
 		double res = convert(val);
-		System.out.println("º¯È¯ °á°ú: " + res + getDestString() + "ÀÔ´Ï´Ù.");
+		System.out.println("ë³€í™˜ ê²°ê³¼: " + res + getDestString() + "ìž…ë‹ˆë‹¤.");
 		scanner.close();
 	}
-}*/
+}
 
 class Km2Mile extends Converter {
 	Km2Mile(double km) {
