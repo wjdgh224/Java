@@ -1,6 +1,6 @@
 package practice7;
 import java.util.*;
-/*
+
 class Student {
 	private String name, dept;
 	private int id;
@@ -28,7 +28,7 @@ public class ex5_1 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<Student> al = new ArrayList<Student>();
-		System.out.println("ÇĞ»ı ÀÌ¸§, Èø°ú, ÇĞ¹ø, ÇĞÁ¡Æò±Õ ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("í•™ìƒ ì´ë¦„, í‰ê³¼, í•™ë²ˆ, í•™ì í‰ê·  ì…ë ¥í•˜ì„¸ìš”.");
 		String [] sp;
 		for(int i=0; i<4; i++) {
 			System.out.print(">> ");
@@ -39,16 +39,16 @@ public class ex5_1 {
 		for(int i=0; i<4; i++) {
 			Student s = al.get(i);
 			System.out.println("--------------------------------");
-			System.out.println("ÀÌ¸§:" + s.getName());
-			System.out.println("ÇĞ°ú:" + s.getDept());
-			System.out.println("ÇĞ¹ø:" + s.getId());
-			System.out.println("ÇĞÁ¡Æò±Õ:" + s.getScore());
+			System.out.println("ì´ë¦„:" + s.getName());
+			System.out.println("í•™ê³¼:" + s.getDept());
+			System.out.println("í•™ë²ˆ:" + s.getId());
+			System.out.println("í•™ì í‰ê· :" + s.getScore());
 		}
 		System.out.println("--------------------------------");
 		while(true) {
-			System.out.print("ÇĞ»ı ÀÌ¸§ >> ");
+			System.out.print("í•™ìƒ ì´ë¦„ >> ");
 			String name = scanner.next();
-			if(name.equals("±×¸¸"))
+			if(name.equals("ê·¸ë§Œ"))
 				break;
 			for(int i=0; i<4; i++) {
 				Student s = al.get(i);
@@ -62,4 +62,3 @@ public class ex5_1 {
 	}
 
 }
-*/
