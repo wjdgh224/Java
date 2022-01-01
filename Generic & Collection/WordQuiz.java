@@ -19,24 +19,24 @@ public class WordQuiz {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Vector<Word> v = new Vector<Word>();
-		v.add(new Word("painting", "±×¸²"));
-		v.add(new Word("emotion", "°¨Á¤"));
-		v.add(new Word("baby", "¾Æ±â"));
-		v.add(new Word("error", "¿À·ù"));
-		v.add(new Word("society", "»çÈ¸"));
-		v.add(new Word("doll", "ÀÎÇü"));
-		v.add(new Word("bear", "°õ"));
-		v.add(new Word("view", "º¸±â"));
-		v.add(new Word("eye", "´«"));
-		v.add(new Word("transaction", "°Å·¡"));
-		v.add(new Word("picture", "»çÁø"));
-		v.add(new Word("human", "ÀÎ°£"));
-		v.add(new Word("statue", "Á¶°¢»ó"));
+		v.add(new Word("painting", "ê·¸ë¦¼"));
+		v.add(new Word("emotion", "ê°ì •"));
+		v.add(new Word("baby", "ì•„ê¸°"));
+		v.add(new Word("error", "ì˜¤ë¥˜"));
+		v.add(new Word("society", "ì‚¬íšŒ"));
+		v.add(new Word("doll", "ì¸í˜•"));
+		v.add(new Word("bear", "ê³°"));
+		v.add(new Word("view", "ë³´ê¸°"));
+		v.add(new Word("eye", "ëˆˆ"));
+		v.add(new Word("transaction", "ê±°ë˜"));
+		v.add(new Word("picture", "ì‚¬ì§„"));
+		v.add(new Word("human", "ì¸ê°„"));
+		v.add(new Word("statue", "ì¡°ê°ìƒ"));
 		
-		System.out.println("\"¸íÇ°¿µ¾î\"ÀÇ ´Ü¾î Å×½ºÆ®¸¦ ½ÃÀÛÇÕ´Ï´Ù. -1À» ÀÔ·ÂÇÏ¸é Á¾·áÇÕ´Ï´Ù.");
-		System.out.println("ÇöÀç " + v.size() + "°³ÀÇ ´Ü¾î°¡ µé¾î ÀÖ½À´Ï´Ù.");
-		int chk[] = new int[v.size()];//´Ü¾î Áßº¹ Ã¼Å©
-		String list[] = new String[4];//¸ñ·Ï Áßº¹ Ã¼Å©
+		System.out.println("\"ëª…í’ˆì˜ì–´\"ì˜ ë‹¨ì–´ í…ŒìŠ¤íŠ¸ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤. -1ì„ ì…ë ¥í•˜ë©´ ì¢…ë£Œí•©ë‹ˆë‹¤.");
+		System.out.println("í˜„ì¬ " + v.size() + "ê°œì˜ ë‹¨ì–´ê°€ ë“¤ì–´ ìˆìŠµë‹ˆë‹¤.");
+		int chk[] = new int[v.size()];//ë‹¨ì–´ ì¤‘ë³µ ì²´í¬
+		String list[] = new String[4];//ëª©ë¡ ì¤‘ë³µ ì²´í¬
 		
 		while(true) {
 			for(int i=0; i<v.size(); i++)
@@ -44,19 +44,19 @@ public class WordQuiz {
 			for(int i=0; i<4; i++)
 				list[i] = "";
 			int index = (int)(Math.random()*v.size());
-			int pos = (int)(Math.random()*4);//»ğÀÔ À§Ä¡
+			int pos = (int)(Math.random()*4);//ì‚½ì… ìœ„ì¹˜
 			Word w = v.get(index);
-			String answer = w.getKor();//Á¤´ä
+			String answer = w.getKor();//ì •ë‹µ
 			chk[index] = 1; list[pos] = w.getKor();
 			System.out.println(w.getEng() + "?");
 			
 			int cnt=0;
-			while(true) {//³ª¸ÓÁö 3°³ ´Ü¾î ¼±ÅÃ
+			while(true) {//ë‚˜ë¨¸ì§€ 3ê°œ ë‹¨ì–´ ì„ íƒ
 				index = (int)(Math.random()*v.size());
-				if(chk[index]!=1) {//´Ù¸¥ ´Ü¾î ¼±ÅÃ
+				if(chk[index]!=1) {//ë‹¤ë¥¸ ë‹¨ì–´ ì„ íƒ
 					chk[index] = 1;
 					w = v.get(index);
-					for(int i=0; i<4; i++) {//¸ñ·Ï ¹è¿­ Áß ºó Ä­¿¡ »ğÀÔ
+					for(int i=0; i<4; i++) {//ëª©ë¡ ë°°ì—´ ì¤‘ ë¹ˆ ì¹¸ì— ì‚½ì…
 						if(list[i].equals("")) {
 							list[i] = w.getKor();
 							cnt++;
@@ -72,7 +72,7 @@ public class WordQuiz {
 			System.out.print(":>");
 			int num = scanner.nextInt();
 			if(num==-1) {
-				System.out.println("\"¸íÇ°¿µ¾î\"¸¦ Á¾·áÇÕ´Ï´Ù...");
+				System.out.println("\"ëª…í’ˆì˜ì–´\"ë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤...");
 				break;
 			}
 			if(answer.equals(list[num-1]))
@@ -81,8 +81,8 @@ public class WordQuiz {
 				System.out.println("NO. !!");
 			
 		}
-		
-
+				
+		scanner.close();
 	}
 
 }
